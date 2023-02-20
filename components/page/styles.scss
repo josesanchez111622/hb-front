@@ -1,0 +1,118 @@
+@import "../../assets/styles/mixin";
+
+$mobile-layout: 468px;
+$button-style-breakpoint: 768px;
+$medium-layout: 860px;
+$desktop-layout: 1080px;
+$action-menu-rollup-computed-width: 40px;
+
+.CustomFrameOverrides {
+
+  .BreadcrumbWrapper {
+    flex: 0 0 auto;
+    grid-area: breadcrumbs;
+    max-width: 100%;
+    margin-right: var(--p-space-4);
+
+    @media print {
+      // stylelint-disable-next-line declaration-no-important
+      display: none !important;
+    }
+  }
+
+  .Polaris-Page {
+    .Polaris-Page-Header__TitleWrapper {
+      @include breakpoint-after($small-screen-width) {
+        padding: var(--p-space-3) 0 !important;
+
+        &.title-plus {
+          margin-right: var(--p-space-20) !important;
+        }
+
+        .Polaris-Header-Title {
+          margin-right: var(--p-space-6) !important;
+        }
+      }
+
+      @include breakpoint-before($small-screen-width) {
+        padding: var(--p-space-3) 0 var(--p-space-2) 0 !important;
+      }
+    }
+
+    .Polaris-Page__Content {
+      @include breakpoint-after($small-screen-width) {
+        margin-top: var(--p-space-3) !important;
+      }
+
+      @include breakpoint-before($small-screen-width) {
+        margin-top: var(--p-space-1) !important;
+      }
+    }
+
+    .Polaris-Page-Header__Row {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+
+
+  .Row {
+    display: flex;
+    justify-content: space-between;
+
+    &:first-child {
+      min-height: 36px;
+    }
+
+    +.Row {
+      margin-top: var(--p-space-1);
+
+      // stylelint-disable-next-line selector-max-combinators, selector-max-class
+      .mobileView & {
+        margin-top: var(--p-space-2);
+      }
+
+      // stylelint-disable-next-line selector-max-combinators, selector-max-class
+      .RightAlign {
+        margin-left: 0;
+      }
+    }
+  }
+
+  .LeftAlign {
+    display: flex;
+    align-content: flex-start;
+    align-items: center;
+  }
+
+  .RightAlign {
+    grid-area: actions;
+    display: flex;
+    align-content: flex-end;
+    flex: 1 1 auto;
+    align-items: flex-start;
+    justify-content: flex-end;
+    margin-left: var(--p-space-4);
+    // Necessary for flex to realize this container doesn't want to wrap
+    white-space: nowrap;
+
+    // .noBreadcrumbs & {
+    //   @include breakpoint-before($mobile-layout) {
+    //     margin-left: 0;
+    //   }
+    // }
+  }
+
+  h1.Polaris-Header-Title {
+    color: #000000;
+    text-align: center;
+
+    @media screen and (min-width: 992px) {
+      @include gtSuperDisplay(normal, 700, 42px, 53px);
+    }
+
+    @media screen and (max-width: 991px) {
+      @include gtSuperDisplay(normal, 700, 26px, 35px);
+    }
+  }
+}

@@ -1,0 +1,61 @@
+@import '../../assets/styles/mixin';
+
+.select {
+	position: relative;
+	height: 40px;
+	padding: 0 16px;
+	border-top-left-radius: 2px;
+	border-top-right-radius: 2px;
+	outline: none;
+	cursor: pointer;
+
+
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+
+	&>.label {
+		flex: 0 0 auto;
+		width: max-content;
+		color: #202223;
+		white-space: nowrap;
+		pointer-events: none;
+		@include inter(normal, 500, 14px, 20px);
+		white-space: nowrap;
+	}
+
+	&>.placeholder {
+		color: #202223;
+		white-space: nowrap;
+		pointer-events: none;
+		@include inter(normal, 600, 12px, 16px);
+		@include textShrink();
+		text-transform: uppercase;
+	}
+
+	&>.arrow {
+		padding: 8px;
+		pointer-events: none;
+	}
+}
+
+.select:not(.filter-applied) {
+	&>.filter-icon {
+		display: none;
+	}
+}
+
+.select:not(.minimized) {
+	.select-dropdown.desktop {
+		width: 100%;
+	}
+}
+
+.select.minimized {
+	width: max-content;
+
+	&>.filter-icon,
+	&>.arrow {
+		display: none;
+	}
+}

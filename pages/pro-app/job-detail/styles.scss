@@ -1,0 +1,59 @@
+#delete-photo-modal-primary {
+    background: var(--p-background);
+    color: #D72C0D;
+    border-color: #D72C0D;
+}
+
+.job-scope-photo {
+    margin-right: -0.5rem;
+}
+
+.job-scope-photo-spinner {
+    margin-right: -0.5rem;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+#PolarisPortalsContainer {
+    --p-background: white !important;
+    --p-action-primary: rgba(6, 39, 249, 1);
+    --p-action-primary-hovered: rgba(6, 33, 203, 1);
+    --p-action-primary-pressed: rgba(8, 28, 157, 1);
+    --p-action-primary-depressed: rgba(10, 23, 110, 1);
+    --p-text-primary: rgba(76, 84, 254, 1);
+    --p-text-primary-hovered: rgba(49, 63, 253, 1);
+    --p-text-primary-pressed: rgba(6, 38, 245, 1);
+    --p-surface-primary-selected: rgba(246, 246, 248, 1);
+    --p-surface-primary-selected-hovered: rgba(200, 200, 214, 1);
+    --p-surface-primary-selected-pressed: rgba(180, 181, 199, 1);
+}
+
+.job-scope-text, .job-note-text {
+    white-space: pre-line;
+    ul, ol {
+        margin-block-start: 0em !important;
+        margin-block-end: 0em !important;
+        padding-inline-start: 20px !important;
+    }
+}
+
+.job-loading {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: var(--p-font-weight-semibold);
+    font-size: var(--p-font-size-8);
+    line-height: var(--p-line-height-4);
+    color: var(--p-text);
+  }
+
+  .pdf-viewer-wrapper{
+    display: inline-block;
+    .react-pdf__Page__canvas {
+        width: 80px !important;
+        height: 100px !important;
+    }
+  }

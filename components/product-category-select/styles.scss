@@ -1,0 +1,70 @@
+@import "../../assets/styles/mixin";
+
+.product-category-select {
+	&-wrapper.desktop {
+		border: 1px solid #babfc3;
+		border-radius: 4px;
+
+		@media screen and (min-width: 768px) {
+			display: flex;
+		}
+
+		@media screen and (max-width: 767px) {
+			display: none;
+		}
+
+		.select {
+			flex: 1 1;
+		}
+
+		.divider {
+			flex: 0 0 auto;
+			width: 1px;
+			background: #bcbfc3;
+		}
+	}
+
+	&-wrapper.mobile {
+		cursor: pointer;
+
+		@media screen and (min-width: 768px) {
+			display: none;
+		}
+
+		@media screen and (max-width: 767px) {
+			position: relative;
+			height: 36px;
+			border: 1px solid #babfc3;
+			border-radius: 4px;
+
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+
+		&>img {
+			padding: 4px 0;
+		}
+
+		&>span {
+			margin-left: 4px;
+		}
+
+		.product-category-select-mobile-menu {
+			position: absolute;
+			top: calc(100% + 5px);
+			left: 0;
+			right: 0;
+			background: #FFFFFF;
+			z-index: 2;
+			padding-bottom: 22px;
+			border: 1px solid #babfc3;
+			border-radius: 8px;
+			box-shadow: 2px 1px rgb(0 0 0 / 5%), 0px 0px 1px rgb(0 0 0 / 25%);
+
+			.radio-group {
+				margin-top: 22px;
+			}
+		}
+	}
+}

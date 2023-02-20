@@ -1,0 +1,12 @@
+@import "../../assets/styles/mixin";
+
+.badge {
+  padding: 2px 8px;
+  border-radius: 10px;
+  background: #f9d806;
+  @include sfProText(normal, normal, 13px, 16px);
+  color: #202223;
+
+  display: inline-flex;
+  align-items: center;
+}

@@ -1,0 +1,9 @@
+.pagination-wrapper {
+    margin-top: 32px;
+    display: flex;
+    justify-content: center;
+}
+
+.Polaris-Tabs__Tab:hover .Polaris-Tabs__Title::before {
+    background-color: var(--p-action-primary) !important;
+}

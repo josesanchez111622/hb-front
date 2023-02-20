@@ -1,0 +1,142 @@
+@import '../../../assets/styles/mixin.scss';
+
+.select-dropdown-parent {
+	position: relative;
+
+	&:focus,
+	&:focus-within {
+		.select-dropdown.desktop {
+			display: block;
+		}
+
+		.select-dropdown.mobile {
+			display: flex;
+		}
+	}
+
+	// &:not(:focus):not(:focus-within) {
+	// 	.select-dropdown:not(.test) {
+	// 		display: none;
+	// 	}
+	// }
+
+	&:focus,
+	&:focus-within {
+		.i-modal {
+			display: none;
+		}
+	}
+}
+
+.select-dropdown:not(.test) {
+
+	&.desktop,
+	&.mobile {
+		display: none;
+	}
+}
+
+.select-dropdown.desktop {
+	position: absolute;
+	top: calc(100% + 1px);
+	left: 0;
+	width: max-content;
+	background: #FFFFFF;
+	border-top: 1px solid #E1E3E5;
+	z-index: 10;
+
+	.mobile-title {
+		display: none;
+	}
+
+	.wrapper {
+		// padding: 14px 12px;
+		border-bottom-left-radius: 8px;
+		border-bottom-right-radius: 8px;
+		box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.2), 0px 2px 10px rgba(0, 0, 0, 0.1);
+	}
+
+	.select-input {
+		display: none;
+	}
+
+	.reset-container {
+		margin: 0 24px;
+		border-top: 1px solid #26282A;
+		height: 45px;
+
+		button.reset {
+			width: 100%;
+			height: 100%;
+
+			@include montserrat(normal, bold, 14px);
+			color: #2E70D2;
+		}
+	}
+}
+
+.select-dropdown.mobile {
+	position: fixed;
+	width: 100%;
+	height: 100%; /// this should be 100%, not 100vh, as mobile browser has bottom bar
+	top: 0;
+	left: 0;
+	// background: rgba(0, 0, 0, 0.5);
+	backdrop-filter: blur(16px);
+
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
+	z-index: 10;
+
+	.mobile-title {
+		position: relative;
+		height: 50px;
+		padding: 0 24px;
+		background: #000000;
+		@include montserrat(normal, bold, 14px);
+
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+
+		&::after {
+			content: "";
+			position: absolute;
+			top: 100%;
+			left: 24px;
+			right: 24px;
+			height: 1px;
+			background: #26282A;
+		}
+
+		&>button.reset {
+			@include montserrat(normal, bold, 14px);
+			color: #2E70D2;
+		}
+	}
+
+	.mobile-title+.wrapper {
+		padding-top: 18px;
+	}
+
+	.wrapper {
+		max-height: 50%;
+		padding: 24px 24px;
+		background: #000000;
+		@include verticalScroll();
+	}
+
+	.select-input {
+		border: 1px solid #FFFFFF;
+		border-radius: 2px;
+
+		input {
+			padding: 0 16px;
+		}
+	}
+
+	.reset-container {
+		display: none;
+	}
+}

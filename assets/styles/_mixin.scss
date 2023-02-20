@@ -1,0 +1,167 @@
+$small-screen-width: 640px;
+
+@function breakpoint($value) {
+  $value-unit: unit($value);
+
+  @if $value-unit == 'rem' {
+    @return $value;
+  } @else if $value-unit == 'px' {
+    @return calc($value / 16px * 1rem);
+  } @else {
+    @error 'The $value passed into breakpoint() must be a pixel or em value. Got "#{$value}"';
+  }
+}
+
+@mixin breakpoint-after($breakpoint, $inclusive: true) {
+  @media (min-width: #{breakpoint($breakpoint) + if($inclusive, 0, 0.01em)}) {
+    @content;
+  }
+}
+
+@mixin breakpoint-before($breakpoint, $inclusive: true) {
+  @media (max-width: #{breakpoint($breakpoint) + if($inclusive, 0, -0.01em)}) {
+    @content;
+  }
+}
+
+.small-screen {
+	@include breakpoint-after($small-screen-width) {
+		display: none !important;
+	}
+
+	@include breakpoint-before($small-screen-width) {
+		display: block !important;
+	}
+}
+
+.not-small-screen {
+	@include breakpoint-after($small-screen-width) {
+		display: block !important;
+	}
+
+	@include breakpoint-before($small-screen-width) {
+		display: none !important;
+	}
+}
+
+// Small devices(landscape phones, 576px and up)
+@media screen and (min-width: 576px) {}
+
+// Medium devices (tablets, 768px and up)
+@media screen and (min-width: 768px) {}
+
+/// Large devices (desktops, 992px and up)
+@media screen and (min-width: 992px) {}
+
+/// Extra large devices (large desktops, 1200px and up)
+@media screen and (min-width: 1200px) {}
+
+@mixin montserrat($style, $weight, $size, $lineHeight: normal) {
+	font-family: "Montserrat", sans-serif !important;
+	font-style: $style !important;
+	font-weight: $weight !important;
+	font-size: $size !important;
+	line-height: $lineHeight !important;
+}
+
+@mixin inter($style, $weight, $size, $lineHeight: normal) {
+	font-family: "Inter", sans-serif !important;
+	font-style: $style !important;
+	font-weight: $weight !important;
+	font-size: $size !important;
+	line-height: $lineHeight !important;
+}
+
+@mixin sfProText($style, $weight, $size, $lineHeight: normal) {
+	font-family: "SF Pro Text", sans-serif !important;
+	font-style: $style !important;
+	font-weight: $weight !important;
+	font-size: $size !important;
+	line-height: $lineHeight !important;
+}
+
+@mixin gtSuperDisplay($style, $weight, $size, $lineHeight: normal) {
+	font-family: "GT Super Display", sans-serif !important;
+	font-style: $style !important;
+	font-weight: $weight !important;
+	font-size: $size !important;
+	line-height: $lineHeight !important;
+}
+
+@mixin gtAmerica($style, $weight, $size, $lineHeight: normal) {
+	font-family: "GT America", sans-serif !important;
+	font-style: $style !important;
+	font-weight: $weight !important;
+	font-size: $size !important;
+	line-height: $lineHeight !important;
+}
+
+@mixin color($color, $opacity: 1) {
+	-webkit-text-fill-color: $color;
+	-webkit-opacity: $opacity;
+	color: $color;
+}
+
+@mixin textShrink($maxLine: 1) {
+	text-overflow: ellipsis;
+	// white-space: nowrap;
+	overflow: hidden;
+
+	@if $maxLine==1 {
+		word-break: break-all;
+	}
+
+	display: -webkit-box;
+	-webkit-line-clamp: $maxLine;
+	-webkit-box-orient: vertical;
+}
+
+@mixin verticalScroll($color: #26282a) {
+	overflow-x: hidden;
+	overflow-y: auto;
+
+	&::-webkit-scrollbar {
+		width: 4px;
+	}
+
+	&::-webkit-scrollbar-thumb {
+		border-radius: 4px;
+		background-color: $color;
+	}
+}
+
+@mixin horizontalScroll($color: #26282a) {
+	overflow-x: auto;
+	overflow-y: hidden;
+
+	&::-webkit-scrollbar {
+		height: 4px;
+	}
+
+	&::-webkit-scrollbar-thumb {
+		border-radius: 4px;
+		background-color: $color;
+	}
+}
+
+@mixin selectionColor($fgColor: white, $bgColor: #0561d1) {
+	&::selection {
+		color: $fgColor !important;
+		background-color: $bgColor !important;
+	}
+
+	&::-moz-selection {
+		color: $fgColor !important;
+		background-color: $bgColor !important;
+	}
+}
+
+@mixin transform($value) {
+	transform: $value;
+	-webkit-transform: $value;
+}
+
+$appGreenColor: #61cef7;
+$errorColor: #f46666;
+
+$colorSpaceBlue: #2e70d2;

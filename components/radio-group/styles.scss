@@ -1,0 +1,52 @@
+@import "../../assets/styles/mixin";
+
+.radio-group {
+	&>.label {
+		padding: 0 20px;
+	}
+
+	&-wrapper {
+		margin-top: 14px;
+	}
+}
+
+.radio-group-item {
+	padding: 0 20px;
+	cursor: pointer;
+
+	display: flex;
+	align-items: center;
+
+	.checkmark {
+		position: relative;
+		width: 18px;
+		height: 18px;
+		border: 2px solid #8C9196;
+		border-radius: 9px;
+
+		&>div {
+			position: absolute;
+			width: 70%;
+			aspect-ratio: 1;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			background: #8C9196;
+			border-radius: 50%;
+		}
+	}
+
+	&>.label {
+		margin-left: 6px;
+	}
+}
+
+.radio-group-item:not(.selected) {
+	.checkmark>div {
+		display: none;
+	}
+}
+
+.radio-group-item+.radio-group-item {
+	margin-top: 10px;
+}

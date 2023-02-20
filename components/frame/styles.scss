@@ -1,0 +1,76 @@
+@import "../../assets/styles/mixin";
+@import "../../styles/color.scss";
+
+.CustomFrameOverrides {
+  --p-background: white !important;
+
+  .Polaris-TopBar {
+    background: var(--frame-header-bg-color);
+
+    @include breakpoint-after($small-screen-width) {
+      padding: var(--p-space-8);
+    }
+
+    @include breakpoint-before($small-screen-width) {
+      padding: var(--p-space-3) var(--p-space-5);
+      min-height: 4rem;
+    }
+  }
+
+  .Polaris-TopBar,
+  .Polaris-Frame__TopBar {
+    height: fit-content;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .Polaris-TopBar__LogoContainer {
+    margin: auto;
+
+    @include breakpoint-after($small-screen-width) {
+      padding: var(--p-space-2) var(--p-space-4) var(--p-space-2) var(--p-space-10);
+    }
+
+    @include breakpoint-before($small-screen-width) {
+      padding: 0;
+    }
+  }
+
+  .Polaris-TopBar-Menu__Activator {
+    padding: 0;
+    margin: 0;
+  }
+
+  .Polaris-TopBar-Menu__ActivatorWrapper {
+    height: fit-content;
+    margin: auto;
+  }
+
+  .Polaris-Frame--hasTopBar .Polaris-Frame__Main {
+    @include breakpoint-after($small-screen-width) {
+      padding-top: 6.75rem;
+    }
+
+    @include breakpoint-before($small-screen-width) {
+      padding-top: 4rem;
+    }
+  }
+}
+
+.CustomProAppFrameOverrides {
+  @include breakpoint-before($small-screen-width) {
+    // .Polaris-TopBar__Contents {
+    //   flex: 0 1;
+    // }
+
+    .Polaris-TopBar__LogoDisplayControl {
+      display: flex;
+      justify-content: center;
+      flex: 1 0 auto;
+    }
+  }
+
+  .Polaris-Frame__Content {
+    background-color: #f6f6f7 !important;
+  }
+}

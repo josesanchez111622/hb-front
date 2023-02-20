@@ -1,0 +1,25 @@
+@import '../../assets/styles/mixin';
+
+.tag {
+	padding: 2px 8px;
+	border-radius: 10px;
+	background: #E4E5E7;
+	@include sfProText(normal, normal, 13px, 16px);
+	color: #202223;
+
+	display: inline-flex;
+	align-items: center;
+
+	.checkmark {
+		width: 10px;
+		height: 10px;
+
+		display: inline-flex;
+		justify-content: center;
+		align-items: center;
+	}
+
+	&>span:nth-child(2) {
+		margin-left: 4px;
+	}
+}

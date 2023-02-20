@@ -1,0 +1,81 @@
+@import '../../../assets/styles/mixin.scss';
+
+.select-dropdown {
+	.select-group {
+		flex: 0 0 auto;
+
+		&>.label {
+			@include montserrat(normal, normal, 14px, 18px);
+			color: #FFFFFF;
+
+			display: flex;
+			align-items: center;
+
+			span {
+				flex: auto;
+			}
+
+			img {
+				margin-left: 16px;
+			}
+		}
+
+		.select-group-content {}
+	}
+
+	.select-group+.select-group {
+		margin-top: 8px;
+	}
+}
+
+.select-dropdown.desktop {
+	.select-group {
+		&>.label {
+			padding: 6px 12px;
+		}
+	}
+}
+
+.select-dropdown.mobile {
+	.select-group {
+		&>.label {
+			padding: 6px 0;
+		}
+	}
+}
+
+.select-dropdown:not(.horizontal) {
+	.select-group {
+		&>.label {
+			img {
+				display: none;
+			}
+		}
+	}
+}
+
+.select-dropdown.horizontal.desktop {
+	.select-group {
+		position: relative;
+		cursor: pointer;
+
+		.select-group-content {
+			position: absolute;
+			top: -14px;
+			left: calc(100% + 12px);
+			width: 100%;
+			padding: 14px 12px;
+			background: #000000;
+		}
+	}
+
+	.select-group:hover {
+		background: #1D1D1D;
+	}
+
+	.select-group:not(:focus):not(:focus-within) {
+		.select-group-content {
+			display: none;
+		}
+	}
+}

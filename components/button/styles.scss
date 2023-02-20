@@ -1,0 +1,47 @@
+@import "../../assets/styles/mixin";
+
+.btn-text {
+	@include inter(normal, normal, 12px, 16px);
+	color: rgba($color: #22252d, $alpha: 0.7);
+}
+
+.btn-contained.btn-default {
+	padding: 12px 24px;
+	border-radius: 4px;
+	background: #0627f9;
+	@include inter(normal, 500, 14px, 20px);
+	color: #ffffff;
+}
+
+.btn-regular {
+	padding: 16px 52px;
+}
+
+.btn-contained.btn-large {
+	min-width: 221px;
+	padding: 22px;
+	border-radius: 4px;
+	background: #0627f9;
+	@include gtAmerica(normal, 400, 20px, 32px);
+	color: #ffffff;
+}
+
+.btn-outlined {
+	padding: 8px 12px;
+	@include inter(normal, 500, 14px, 20px);
+	color: #202223;
+	border-radius: 4px;
+	border: 1px solid #BABFC3;
+	box-shadow: 0px 1px 0px 0px #0000000D;
+
+	display: inline-flex;
+	align-items: center;
+
+	&>img {
+		padding: 4px;
+	}
+
+	&>img+span {
+		margin-left: 4px;
+	}
+}
